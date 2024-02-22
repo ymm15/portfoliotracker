@@ -1,0 +1,34 @@
+import requests
+
+def get_crypto_price(symbol):
+    url = f'https://api.coingecko.com/api/v3/simple/price?ids={symbol}&vs_currencies=usd'
+    response = requests.get(url)
+    data = response.json()
+    return data[symbol]['usd']
+
+def calculate_portfolio_value(portfolio):
+    total_value = 0
+    for coin, amount in portfolio.items():
+        price = get_crypto_price(coin)
+        total_value += price * amount
+    return total_value
+
+def main():
+    portfolio = {
+        'bitcoin': 2.5,
+        'ethereum': 10,
+        'litecoin': 20
+    }
+
+    print("=== Crypto Portfolio Tracker ===")
+    print("Current Portfolio:")
+    for coin, amount in portfolio.items():
+        price = get_crypto_price(coin)
+        value = price * amount
+        print(f"{coin.capitalize()}: {amount} - ${value:.2f}")
+
+    total_value = calculate_portfolio_value(portfolio)
+    print(f"\nTotal Portfolio Value: ${total_value:.2f}")
+
+if __name__ == "__main__":
+    main()
