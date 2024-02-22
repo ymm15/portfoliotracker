@@ -1,0 +1,16 @@
+# Crypto Portfolio Tracker
+
+This is a simple Python script for tracking the value of your cryptocurrency portfolio.
+
+## Features
+
+- Fetches real-time cryptocurrency prices from the CoinGecko API.
+- Calculates the total value of your portfolio based on the amounts of each cryptocurrency you hold.
+- Customizable portfolio holdings.
+
+## Usage
+
+1. Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/ymm15/crypto-portfolio-tracker.git
